@@ -1,0 +1,32 @@
+#navbarDropdown {
+    height: 42px;
+
+    img {
+        width: 30px;
+        border: solid 1px #c7c7c7;
+    }
+
+    
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.tweet {
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-weight: bold;
+}
+
+.search {
+    background: url(assets/search.png) no-repeat scroll 7px 7px;
+    padding-right: 30px;
+    padding-left: 15px;
+    background-size: 15px;
+    background-position: right 10px center;
+
+}
