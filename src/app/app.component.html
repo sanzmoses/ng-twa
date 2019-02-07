@@ -5,10 +5,30 @@
   <div class="row mt-2">
     <div class="col-md-3">
 
-      <div class="card">
-        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="card rounded-0">
+        <img class="card-img-top" src="../../assets/spodermanbg.jpg" alt="Card image cap">
+        <div class="card-body pt-2 pb-0">
+          
+          <img class="img-fluid rounded-circle float-left dp" src="https://pbs.twimg.com/profile_images/1093326968861290496/b8-UQrt2_400x400.jpg" alt="">
+          <div class="ml-6">
+            <h5 class="m-0"><b>Peter</b></h5>
+            <p><small>@peterparker</small></p>
+          </div>
+          
+        </div>
+        <div class="card-body pt-0 pb-1 px-0">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <small><b>Whine</b></small>
+                <h4>2</h4>
+              </div>
+              <div class="col">
+                <small><b>Following</b></small>
+                <h4>2</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -16,20 +36,41 @@
 
     </div>
 
-    <div class="col-md-6">
-        <div class="card">
-          <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="col-md-6 p-0">
+        <div class="card rounded-0">
+          <div class="card-body bg-lightblue">
+              <img class="img-fluid rounded-circle float-left dp-1" src="https://pbs.twimg.com/profile_images/1093326968861290496/b8-UQrt2_400x400.jpg" alt="">
+              <form class="form-inline">
+                <textarea class="form-control w-100 ml-2 whine" id="exampleFormControlTextarea1" row="1" 
+                [(ngModel)]="input" [ngModelOptions]="{standalone: true}" placeholder="Whine about something..."></textarea>
+
+                <div class="form-btn w-100">
+                  <button class="btn btn-info btn-sm float-right rounded-pill mt-2 px-3 mr-2">Whine <i class="far fa-paper-plane ml-2"></i></button>
+
+                  <button class="btn btn-warning btn-sm float-right rounded-circle mt-2 mr-2" (click)="refreshWhine()"> <i class="fas fa-sync-alt"></i> </button>
+                </div>
+              </form>
+              
           </div>
+          <app-card></app-card>
         </div>
     </div>
 
     <div class="col-md-3">
-      <div class="card">
-        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="http://placehold.it/180x100" alt="Card image cap">
         <div class="card-body">
+          <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
         </div>
       </div>
     </div>
