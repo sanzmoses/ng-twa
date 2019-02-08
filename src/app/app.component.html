@@ -3,9 +3,9 @@
 
 <div class="container navbar-space">
   <div class="row mt-2">
-    <div class="col-md-3">
+    <div class="col-12 col-sm-5 col-md-5 col-lg-3">
 
-      <div class="card rounded-0">
+      <div class="card rounded-0" style="min-width: 100px">
         <img class="card-img-top" src="../../assets/spodermanbg.jpg" alt="Card image cap">
         <div class="card-body pt-2 pb-0">
           
@@ -19,58 +19,60 @@
         <div class="card-body pt-0 pb-1 px-0">
           <div class="container-fluid">
             <div class="row">
+
               <div class="col">
-                <small><b>Whine</b></small>
-                <h4>2</h4>
+                <small><b>Whimpers</b></small>
+                <h4>{{ cards.length }}</h4>
               </div>
               <div class="col">
-                <small><b>Following</b></small>
-                <h4>2</h4>
+                <small><b>Hearts</b></small>
+                <h4>{{ hartHart }}</h4>
+
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <router-outlet></router-outlet>
+      <!-- <router-outlet></router-outlet> -->
 
     </div>
 
-    <div class="col-md-6 p-0">
+    <div class="col-12 col-sm-7 col-md-7 col-lg-6 p-lg-0 pl-md-0 pl-sm-0 mt-3 mt-sm-0">
         <div class="card rounded-0">
           <div class="card-body bg-lightblue">
               <img class="img-fluid rounded-circle float-left dp-1" src="https://pbs.twimg.com/profile_images/1093326968861290496/b8-UQrt2_400x400.jpg" alt="">
               <form class="form-inline">
-                <textarea class="form-control w-100 ml-2 whine" id="exampleFormControlTextarea1" row="1" 
+                <textarea class="form-control w-100 ml-2 whine" id="exampleFormControlTextarea1" row="4" 
                 [(ngModel)]="input" [ngModelOptions]="{standalone: true}" placeholder="Whine about something..."></textarea>
 
                 <div class="form-btn w-100">
-                  <button class="btn btn-info btn-sm float-right rounded-pill mt-2 px-3 mr-2">Whine <i class="far fa-paper-plane ml-2"></i></button>
+                  <button class="btn btn-info btn-sm float-right rounded-pill mt-2 px-3 mr-2" (click)="newWhine()" >
+                    <span *ngIf="!edit.editing">Whine</span>
+                    <span *ngIf="edit.editing">Edit</span>
+                  <i class="far fa-paper-plane ml-2"></i></button>
 
                   <button class="btn btn-warning btn-sm float-right rounded-circle mt-2 mr-2" (click)="refreshWhine()"> <i class="fas fa-sync-alt"></i> </button>
                 </div>
               </form>
               
           </div>
-          <app-card></app-card>
+          <app-card *ngFor="let card of cards; let i = index" [whimper]="card.complaint" [datetime]="card.datetime" [index]="i" (hartEvent)="receiveHart($event)" (editDelete)="update($event)"></app-card>
         </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="http://placehold.it/180x100" alt="Card image cap">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-xs-3 mt-md-3 mt-sm-3 mt-3 mt-lg-0">
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">Description:</h5>
+          <p class="card-text">A twitter app imitation for conding practice on Angular 5 and whatnot.</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item py-2"> <small>Is it good?</small> </li>
+          <li class="list-group-item py-2"><small>Fine?</small></li>
+          <li class="list-group-item py-2"><small>Excellent!</small></li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+        <div class="card-footer">
         </div>
       </div>
     </div>

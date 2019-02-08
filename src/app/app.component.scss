@@ -26,18 +26,13 @@
     background-position: right 10px top 10px;
     background-color: white;
     border: 1px solid #b7e2ff;
-    height: 2.4em;
     transition: all .3s ease;
-    overflow: hidden;
+    height: 4.5em;
 }
 
 ::placeholder {
     color: #60bfff;
     font-size: 14px;
-}
-
-.whine:focus {
-    height: 6em;
 }
 
 .whine:focus::placeholder {

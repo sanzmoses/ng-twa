@@ -23,3 +23,12 @@ hr {
 .bg-lightblue {
     background-color: rgba(100, 185, 255, 0.17);
 }
+
+.pointer {
+    cursor: pointer;
+    color: rgb(28, 145, 255);
+}
+
+.pointer:hover {
+    color: rgb(26, 128, 224);
+}
