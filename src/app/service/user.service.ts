@@ -18,6 +18,10 @@ export class UserService {
     this.countHeart();
   }
 
+  getCards() {
+    return this.cards.value;
+  }
+
   countHeart() {
     let count = 0;
     // console.log(this.cards);

@@ -9,6 +9,8 @@ import { UserService } from './service/user.service';
 export class AppComponent {
   input: string = '';
   hartHart: number = 0;
+  countWhimpers: number = 0;
+  notFound: boolean = false;
   edit = {
     index: 0,
     heart: false,
@@ -19,8 +21,11 @@ export class AppComponent {
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-    this.userService.cast.subscribe(cards=> this.cards = cards);
-    this.userService.love.subscribe(hearts=> this.hartHart = hearts);
+    this.userService.cast.subscribe((cards) => {
+      this.cards = cards;
+      this.countWhimpers = cards.length;
+    });
+    this.userService.love.subscribe(hearts => this.hartHart = hearts);
   }
 
   refreshWhine() {
@@ -63,6 +68,16 @@ export class AppComponent {
     this.edit.editing = true;
     this.edit.heart = $event.heart;
     this.edit.index = $event.index;
+  }
+
+  searching($event) {
+    let string = $event.toLowerCase();
+    this.cards = this.userService.getCards().filter((el)=>{ 
+      return el.complaint.toLowerCase().includes(string);
+    });
+
+    (!this.cards.length)? this.notFound = true: this.notFound = false;
+    
   }
 
 }

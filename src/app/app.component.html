@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
+<app-navbar (string)="searching($event)"></app-navbar>
 
 <div class="container navbar-space">
   <div class="row mt-2">
@@ -12,7 +12,7 @@
           <img class="img-fluid rounded-circle float-left dp" src="https://pbs.twimg.com/profile_images/1093326968861290496/b8-UQrt2_400x400.jpg" alt="">
           <div class="ml-6">
             <h5 class="m-0"><b>Peter</b></h5>
-            <p><small>@peterparker</small></p>
+            <p><small>@pparker</small></p>
           </div>
           
         </div>
@@ -22,7 +22,7 @@
 
               <div class="col">
                 <small><b>Whimpers</b></small>
-                <h4>{{ cards.length }}</h4>
+                <h4>{{ countWhimpers }}</h4>
               </div>
               <div class="col">
                 <small><b>Hearts</b></small>
@@ -58,6 +58,18 @@
               
           </div>
           <app-card *ngFor="let card of cards; let i = index" [whimper]="card.complaint" [datetime]="card.datetime" [heart]='card.heart' [index]="i" (edit)="update($event)"></app-card>
+          
+          <div *ngIf="notFound">
+            <hr>
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-center">
+                  <div class="">
+                      <h4 class="text-warning"><i class="fas fa-frown mr-2"></i> No whimpers like that!</h4>
+                  </div>
+                </div>
+            </div>
+          </div>
+
         </div>
     </div>
 
