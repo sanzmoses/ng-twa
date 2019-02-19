@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-card',
@@ -10,22 +11,25 @@ export class CardComponent implements OnInit {
   @Input() whimper: string
   @Input() datetime: string
   @Input() index: number
-  @Output() hartEvent: any = new EventEmitter();
-  @Output() editDelete: any = new EventEmitter();
-  hartHart = false;
+  @Input() heart: boolean
+  @Output() edit: any = new EventEmitter();
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
   }
 
   loveIt() {
-    this.hartHart = !this.hartHart;
-    this.hartEvent.emit(this.hartHart);
+    this.heart = !this.heart;
+    this.userService.updateHeart(this.index, this.heart);
   }
 
-  change(type) {
-    this.editDelete.emit({'type':type, 'index': this.index, 'hart': this.hartHart, 'whine': this.whimper});
+  change() {
+    this.edit.emit({'index': this.index, 'heart': this.heart, 'whine': this.whimper});
+  }
+
+  delete() {
+    this.userService.deleteWhimper(this.index);
   }
 
 }

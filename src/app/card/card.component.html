@@ -10,10 +10,10 @@
       </div>
     </div>
     <div class="d-flex flex-row ml-2">
-        <i [ngClass]="{'far': !hartHart, 'fas': hartHart, 'text-danger': hartHart}" class="fa-heart pointer ml-5" (click)="loveIt()"
+        <i [ngClass]="{'far': !heart, 'fas': heart, 'text-danger': heart}" class="fa-heart pointer ml-5" (click)="loveIt()"
         ></i>
-        <i class="fas fa-edit pointer ml-5" (click)="change('edit')"></i>
-        <i class="far fa-trash-alt pointer ml-5" (click)="change('delete')"></i>
+        <i class="fas fa-edit pointer ml-5" (click)="change()"></i>
+        <i class="far fa-trash-alt pointer ml-5" (click)="delete()"></i>
     </div>
 </div>
 

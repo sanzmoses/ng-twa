@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 
+import { UserService } from './service/user.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

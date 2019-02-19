@@ -57,7 +57,7 @@
               </form>
               
           </div>
-          <app-card *ngFor="let card of cards; let i = index" [whimper]="card.complaint" [datetime]="card.datetime" [index]="i" (hartEvent)="receiveHart($event)" (editDelete)="update($event)"></app-card>
+          <app-card *ngFor="let card of cards; let i = index" [whimper]="card.complaint" [datetime]="card.datetime" [heart]='card.heart' [index]="i" (edit)="update($event)"></app-card>
         </div>
     </div>
 
@@ -65,7 +65,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Description:</h5>
-          <p class="card-text">A twitter app imitation for conding practice on Angular 5 and whatnot.</p>
+          <p class="card-text">A twitter app imitation for coding practice on Angular 5 and whatnot.</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item py-2"> <small>Is it good?</small> </li>
